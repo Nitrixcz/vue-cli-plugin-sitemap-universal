@@ -69,12 +69,12 @@ const slugsItemsSchema = {
 	properties: urlMetaTagsSchema,
 	patternProperties: {
 		// Any property that is not a meta info
-		'^(?!(lastmod|changefreq|priority)$).*$': {
+		'^(?!(lastmod|changefreq|priority|images)$).*$': {
 			type: ['string', 'number'],
 		}
 	},
 	// Require at least one property that is not a meta info
-	patternRequired: ['^(?!(lastmod|changefreq|priority)$).+$'],
+	patternRequired: ['^(?!(lastmod|changefreq|priority|images)$).+$'],
 };
 
 /**
