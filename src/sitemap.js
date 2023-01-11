@@ -60,9 +60,10 @@ async function generateSitemapIndexXML(nbSitemaps, options) {
 
 function generateSitemapXML(urls, options) {
 	return '<?xml version="1.0" encoding="UTF-8"?>\n'
-	     + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-	     +     `${urls.map(url => generateURLTag(url, options)).join('')}`
-	     + '</urlset>';
+		+ '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+		+ ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
+		+     `${urls.map(url => generateURLTag(url, options)).join('')}`
+		+ '</urlset>';
 }
 
 function generateURLTag(url, options) {
@@ -83,7 +84,17 @@ function generateURLTag(url, options) {
 		return `\t\t<${tag}>${value}</${tag}>\n`;
 	});
 
-	return `\t<url>\n\t\t<loc>${url.loc}</loc>\n${metaTags.join('')}\t</url>\n`;
+	return `\t<url>\n\t\t<loc>${url.loc}</loc>\n${generateImageTags(url)}\n${metaTags.join('')}\t</url>\n`;
+}
+
+function generateImageTags(url) {
+	if (url.images && url.images.length) {
+
+		return  url.images.map((image)=> {
+			return `<image:image><image:loc>${image}</image:loc></image:image>`
+		});
+	}
+	return ''
 }
 
 function escapeUrl(url) {

@@ -55,6 +55,9 @@ const urlMetaTagsSchema = {
 		minimum:    0.0,
 		maximum:    1.0,
 	},
+	images: {
+		type: 'array',
+	},
 };
 
 /**

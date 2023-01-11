@@ -1,7 +1,7 @@
 {
   "name": "vue-cli-plugin-sitemap-bk",
   "description": "A Vue CLI plugin to generate simple or complex sitemaps effortlessly.",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -40,8 +40,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^7.14.0",
-    "eslint-plugin-smarter-tabs": "^1.1.2",
+    "eslint": "^8.31.0",
+    "eslint-plugin-smarter-tabs": "^1.2.0",
     "mocha": "^8.2.1",
     "nyc": "^15.1.0"
   },
